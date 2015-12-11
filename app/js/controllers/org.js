@@ -30,6 +30,7 @@ angular.module('myApp.controllers')
 
                         $scope.addSubOrg = function () {
                             $scope.sub.parent = org.id;
+                            console.log("添加的:", $scope.sub);
                             Org.update({}, $scope.sub, function (data) {
                                 $scope.sub = {
                                     name: '',

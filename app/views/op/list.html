@@ -1,0 +1,61 @@
+<div class="col-md-10">
+
+    <tabset>
+        <tab heading="管理员列表" active="tabset.list" select="selectTab()">
+            <div>
+                <div class="panel panel-default tab-panel">
+                    <table class="table list">
+                        <tr>
+                            <th class="text-left">登录名</th>
+                            <th>操作</th>
+                        </tr>
+                        <tr ng-repeat="a in data.data">
+                            <td class="text-left">{{a.login}}</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm fa fa-file-text" ng-click="show($index)">
+                                    详情
+                                </button>
+                                <button class="btn btn-primary btn-sm fa fa-key" ng-click="resetPassword(a)">重置密码
+                                </button>
+                                <button class="btn btn-primary btn-sm fa fa-pencil-square-o" ng-click="edit($index)">
+                                    修改
+                                </button>
+                                <button class="btn btn-danger btn-sm fa fa-trash-o" ng-click="remove($index)"
+                                        ng-if="a.login != 'admin' && a.login != me.login">
+                                    删除
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="text-center">
+                        <pagination
+                                total-items="data.total" ng-model="data.page" items-per-page="data.size"
+                                max-size="10" class="pagination-sm" boundary-links="true" rotate="true"
+                                previous-text="上一页" next-text="下一页" first-text="首页" last-text="末页">
+                        </pagination>
+                    </div>
+
+                </div>
+            </div>
+        </tab>
+
+        <tab heading="管理员详情" active="tabset.show" ng-show="tabset.show">
+            <div ng-include="'views/op/show.html'"></div>
+        </tab>
+
+        <tab heading="修改管理员" active="tabset.update" ng-show="tabset.update">
+            <div ng-include="'views/op/edit.html'"></div>
+        </tab>
+
+
+    </tabset>
+
+</div>
+
+<div class="col-md-offset-10">
+    <div class="dropdown">
+        <a ui-sref="home.createOp" class="btn btn-primary fa fa-plus"> 创建管理员</a>
+    </div>
+</div>
+

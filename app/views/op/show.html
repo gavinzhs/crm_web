@@ -1,0 +1,38 @@
+<div>
+    <div class="panel panel-default tab-panel">
+        <div class="panel-body">
+            <div class="row xe-row">
+                <label class="col-sm-3 control-label  text-right">登录名</label>
+
+                <div class="col-sm-9">
+                    {{ op.uid }}
+                </div>
+            </div>
+
+            <div class="row xe-row">
+                <label class="col-sm-3 control-label  text-right">姓名</label>
+
+                <div class="col-sm-9">
+                    {{ op.name }}
+                </div>
+            </div>
+
+            <div class="row xe-row">
+                <label class="col-sm-3 control-label  text-right">手机</label>
+
+                <div class="col-sm-9">
+                    {{ op.mobile }}
+                </div>
+            </div>
+            <div class="row" style="padding-top:10px;">
+                <div class="col-md-offset-2 col-md-6">
+                    <button class="btn btn-primary btn-sm fa fa-pencil-square-o" type="button" ng-click="edit(index)">
+                        修改
+                    </button>
+                    <button class="btn btn-primary btn-sm fa fa-key" ng-click="resetPassword(op)">重置密码</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

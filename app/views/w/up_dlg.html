@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <h5 class="modal-title">上传</h5>
+</div>
+<div class="modal-body">
+    <form name="frm" class="form-horizontal" role="form">
+        <div class="form-group"
+             ng-class="{'has-error' : frm.file.$dirty && frm.file.$invalid, 'has-success' : frm.file.$dirty && frm.file.$valid}">
+            <label class="col-sm-4 control-label">
+                请选择上传文件:
+            </label>
+
+            <div class="col-sm-5">
+                <input type="file" name="file" class="form-control" ng-file-select ng-model="file" required>
+                <br/>
+                <i ng-show="frm.file.$error.required">Required</i>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" ng-click="frm.$valid && ok()">
+        <i class="fa" ng-class="{'fa-cloud-upload': !uploading, 'fa-spinner fa-spin': uploading}"></i>
+        上传
+    </button>
+    <button class="btn btn-default" ng-click="cancel()">取消</button>
+</div>

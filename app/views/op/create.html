@@ -1,0 +1,84 @@
+<div class="col-md-10">
+    <tabset>
+        <tab heading="创建管理员" active="tabset.list" select="selectTab()">
+            <div>
+                <div class="panel panel-default tab-panel">
+                    <!--<div class="navbar-form navbar-left">-->
+                    <!--</div>-->
+                    <!--<HR style="color: #DDDDDD" width="100%" SIZE=1>-->
+                    <!--<div ng-include="'views/op/op_list.html'"></div>-->
+
+                    <div class="panel-body">
+
+                        <form name="frm" class="form-horizontal" role="form" ng-submit="frm.$valid && sub()">
+
+                            <div class="form-group"
+                                 ng-class="{'has-error' : frm.uid.$dirty && frm.uid.$invalid, 'has-success' : frm.uid.$dirty && frm.uid.$valid}">
+                                <label for="uid" class="col-sm-3 control-label">登录名</label>
+
+                                <div class="col-sm-5">
+                                    <input
+                                            type="text" class="form-control" id="uid"
+                                            name="uid"
+                                            ng-model="data.login" required ng-pattern="/^\w+$/">
+                                </div>
+                            </div>
+
+                            <div class="form-group"
+                                 ng-class="{'has-error' : frm.newPasswd.$dirty && frm.newPasswd.$invalid, 'has-success' : frm.newPasswd.$dirty && frm.newPasswd.$valid}">
+                                <label for="newPasswd" class="col-sm-3 control-label">密码</label>
+
+                                <div class="col-sm-5">
+                                    <input
+                                            type="password" class="form-control" id="newPasswd"
+                                            name="newPasswd" placeholder="New Password"
+                                            ng-model="data.passwd" required ng-pattern="/^\w+$/">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group"
+                                 ng-class="{'has-error' : frm.confirmPasswd.$dirty && frm.confirmPasswd.$invalid, 'has-success' : frm.confirmPasswd.$dirty && frm.confirmPasswd.$valid}">
+                                <label for="confirmPasswd" class="col-sm-3 control-label">确认密码</label>
+
+                                <div class="col-sm-5">
+                                    <input
+                                            type="password" class="form-control" id="confirmPasswd"
+                                            name="confirmPasswd" placeholder="Confirm Password"
+                                            ng-model="data.confirmPasswd" required ng-pattern="/^\w+$/"
+                                            ui-validate="'$value==data.passwd'"
+                                            ui-validate-watch="'data.passwd'">
+                                </div>
+                                <div ng-show="!!frm.confirmPasswd.$error.validator && frm.confirmPasswd.$dirty">
+                                    <p class="text-danger">New password should be same with confirm password</p>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-6">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fa"
+                                           ng-class="{'fa-check': !loading, 'fa-spinner fa-spin': loading}"></i>
+                                        提交
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </tab>
+
+    </tabset>
+
+
+</div>
+<div class="col-md-offset-10">
+    <div class="dropdown">
+        <a ui-sref="home.listOp" class="btn btn-primary fa fa-list-alt"> 管理员列表</a>
+    </div>
+</div>
+

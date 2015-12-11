@@ -48,7 +48,23 @@ angular.module('myApp.services')
                 }
             }).result;
         };
-    });
+    })
+    .factory('Org', ['$resource', function ($resource) {
+        var Org = $resource('/admin/org/:id', {id: '@id'}, {
+            'update': {method: 'POST'}
+        });
+        Org.batch = $resource('/admin/org/batch', null, {
+            'get': {method: 'POST'}
+        });
+        Org.batchMember = $resource('/admin/org/batch/member/:action', {action: '@action'}, {
+            'update': {method: 'POST'}
+        });
+        Org.member = $resource('/admin/org/:id/member/:action', {id: '@id', action: '@action'}, {
+            'update': {method: 'POST'}
+        });
+        return Org;
+    }])
+;
 
 
 

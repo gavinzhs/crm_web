@@ -1,0 +1,18 @@
+<div ui-tree-handle>
+  <a class="btn btn-xs" data-nodrag ng-click="tryToggle(this)">
+    <span class="fa" ng-class="{'fa-plus': collapsed, 'fa-minus': !collapsed}"></span>
+  </a>
+  {{item.name}}
+  <a class="pull-right btn btn-primary btn-xs" data-nodrag
+     ng-click="edit(this)" style="margin-right: 8px;">
+    <span class="fa fa-edit"> 编辑</span>
+  </a>
+  <span style="font-weight: lighter; margin-left: 10px;">
+    <small>{{item.memo || item.title}}</small>
+  </span>
+</div>
+<ol ui-tree-nodes="options" style="min-height: 20px" ng-model="item.children" ng-class="{hidden: collapsed}">
+    <li style="border: 1px #dddddd dotted;" ng-repeat="item in item.children" ui-tree-node data-collapsed="true"
+        ng-include="'views/w/org_tree.html'">
+  </li>
+</ol>

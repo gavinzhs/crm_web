@@ -1,30 +1,163 @@
 /* app css stylesheet */
 
 .menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
 }
 
 .menu:before {
-  content: "[";
+    content: "[";
 }
 
 .menu:after {
-  content: "]";
+    content: "]";
 }
 
 .menu > li {
-  display: inline;
+    display: inline;
 }
 
 .menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+    content: "|";
+    padding-right: 0.3em;
 }
 
 .menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+    content: "";
+    padding: 0;
 }
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+/*m-title*/
+.m-title{
+    margin: 20px 15px 15px 15px;
+}
+.m-title .main {
+    border-bottom: 1px #808080 solid;
+}
+
+.m-title .other{
+    border-bottom: 1px #808080 solid;
+}
+
+/* setting */
+.setting .form-horizontal {
+    margin-bottom: 50px;
+}
+/*list*/
+.list th, .list td {
+    text-align: center;
+}
+.list th.text-left, .list td.text-left {
+    text-align: left;
+}
+
+/*summary*/
+.app-key .row {
+    padding: 8px;
+    margin: 10px 0;
+}
+
+form.config p{
+    margin-top: 6px;
+}
+
+form.config i{
+    margin-left: 6px;
+}
+
+form.config .btn-sm{
+    margin-top: 3px;
+}
+
+/* push */
+.ex-input {
+    padding: 1px;
+}
+
+.dv-ex a{
+    margin-top: 4px;
+}
+
+.push .open-tp .radio{
+    margin: 5px 0;
+}
+
+/*login*/
+.dv-login {
+    margin: 20px;
+
+}
+
+/* org */
+.org-tree ol{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.org-tree li{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* worldOrg */
+.worldOrg-tree ol {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.worldOrg-tree li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* country-content */
+.sortable-list {
+    list-style: none outside none;
+    margin: 10px 0 30px;
+}
+
+.sortable-item {
+    padding: 5px 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    cursor: move;
+}
+
+.xe-row{
+    padding-bottom: 20px;
+}
+
+.action-item{
+    margin-bottom: 15px;
+}
+
+img.icon {
+    width: 50px;
+}
+
+.table td.text_va_middle {
+    vertical-align: middle
+}
+
+.tab-panel {
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+    padding-top: 10px;
+}
+
+.word-wrap {
+    word-wrap: break-word;
+    max-width: 120px;
+}
+
+.bluecolor{
+    color: dodgerblue;
+}
+

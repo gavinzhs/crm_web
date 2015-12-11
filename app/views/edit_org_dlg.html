@@ -1,0 +1,85 @@
+<div class="modal-header">
+    <h5 class="modal-title">编辑</h5>
+</div>
+<div class="modal-body">
+    <div class="row xe-row">
+        <label class="col-sm-3 control-label">信息</label>
+        <div class="col-sm-9">
+            <a href="#" editable-text="org.name"
+               onbeforesave="save('name', $data)">{{ org.name || '点击编辑' }}</a>
+            <br/>
+        </div>
+    </div>
+
+    <div class="row xe-row" ng-if="org.tp == 0">
+        <label class="col-sm-3 control-label">地址</label>
+        <div class="col-sm-9">
+            <a href="#" editable-text="org.addr"
+               onbeforesave="save('addr', $data)">{{ org.addr || '点击编辑' }}</a>
+            <br/>
+        </div>
+    </div>
+
+    <div class="row xe-row" ng-if="org.tp == 3">
+        <label class="col-sm-3 control-label">业主</label>
+        <div class="col-sm-9">
+            <a href="#" editable-text="org.owner"
+               onbeforesave="save('owner', $data)">{{ org.owner || '点击编辑' }}</a>
+            <br/>
+        </div>
+    </div>
+
+    <div class="row xe-row" ng-if="org.tp == 3">
+        <label class="col-sm-3 control-label">电话</label>
+        <div class="col-sm-9">
+            <a href="#" editable-text="org.mobile"
+               onbeforesave="save('mobile', $data)">{{ org.mobile || '点击编辑' }}</a>
+            <br/>
+        </div>
+    </div>
+
+    <div class="row xe-row" ng-if="org.tp == 3">
+        <label class="col-sm-3 control-label">备注</label>
+        <div class="col-sm-9">
+            <a href="#" editable-text="org.memo"
+               onbeforesave="save('memo', $data)">{{ org.memo || '点击编辑' }}</a>
+            <br/>
+        </div>
+    </div>
+
+    <hr/>
+    <div class="row xe-row" ng-if="org.tp < 3">
+        <label class="col-sm-3 control-label">添加下级</label>
+
+        <div class="col-sm-6">
+            <form name="frm" role="form" ng-submit="addSubOrg()">
+                <div class="form-group"
+                     ng-class="{'has-error' : frm.name.$dirty && frm.name.$invalid, 'has-success' : frm.name.$dirty && frm.name.$valid}">
+                    <input type="text" name="name" ng-model="sub.name" placeholder="请输入名称" class="form-control" required>
+                </div>
+
+                <div class="form-group" ng-if="org.tp == -1">
+                    <textarea placeholder="地址" class="form-control" ng-model="sub.addr"></textarea>
+                </div>
+
+                <div class="form-group" ng-if="org.tp == 2">
+                    <textarea placeholder="业主" class="form-control" ng-model="sub.owner"></textarea>
+                </div>
+
+                <div class="form-group" ng-if="org.tp == 2">
+                    <textarea placeholder="电话" class="form-control" ng-model="sub.mobile"></textarea>
+                </div>
+
+                <div class="form-group" ng-if="org.tp == 2">
+                    <textarea placeholder="请输入备注" class="form-control" ng-model="sub.memo"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-xs" ng-disabled="frm.$invalid">完成</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-danger" ng-click="remove()"><i class="fa fa-trash-o"></i> 删除</button>
+    <button class="btn btn-primary" ng-click="ok()">关闭</button>
+</div>

@@ -1,0 +1,28 @@
+<div class="col-md-9">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">地盘详情</h3>
+        </div>
+        <div class="panel-body">
+            <div ui-tree="treeOptions" class="org-tree" data-drag-enabled="true">
+                <ol ui-tree-nodes ng-model="list">
+                    <li ng-repeat="item in list" ui-tree-node ng-include="'views/w/org_tree.html'"></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="col-md-2">-->
+    <!--<button type="button" class="btn btn-primary btn-lg btn-block fa fa-plus" ui-sref="home.createUser({source:'org'})"> 新增成员</button>-->
+    <!--&lt;!&ndash;<button type="button" class="btn btn-primary btn-lg btn-block fa fa-arrows"&ndash;&gt;-->
+    <!--&lt;!&ndash;ng-disabled="!uids.length" ng-click="batchMove()"> 移动成员&ndash;&gt;-->
+    <!--&lt;!&ndash;</button>&ndash;&gt;-->
+    <!--<button type="button" class="btn btn-danger btn-lg btn-block fa fa-trash-o"-->
+            <!--ng-disabled="!uids.length" ng-click="batchDel()" ng-if="me.isAdmin"> 移出部门-->
+    <!--</button>-->
+    <!--<button type="button" class="btn btn-primary btn-lg btn-block fa fa-file-excel-o"-->
+            <!--ng-click="csv()"> 导入/导出-->
+    <!--</button>-->
+<!--</div>-->
+
+

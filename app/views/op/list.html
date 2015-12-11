@@ -12,14 +12,14 @@
                         <tr ng-repeat="a in data.data">
                             <td class="text-left">{{a.login}}</td>
                             <td>
-                                <button class="btn btn-primary btn-sm fa fa-file-text" ng-click="show($index)">
-                                    详情
-                                </button>
-                                <button class="btn btn-primary btn-sm fa fa-key" ng-click="resetPassword(a)">重置密码
-                                </button>
-                                <button class="btn btn-primary btn-sm fa fa-pencil-square-o" ng-click="edit($index)">
-                                    修改
-                                </button>
+                                <!--<button class="btn btn-primary btn-sm fa fa-file-text" ng-click="show($index)">-->
+                                    <!--详情-->
+                                <!--</button>-->
+                                <!--<button class="btn btn-primary btn-sm fa fa-key" ng-click="resetPassword(a)">重置密码-->
+                                <!--</button>-->
+                                <!--<button class="btn btn-primary btn-sm fa fa-pencil-square-o" ng-click="edit($index)">-->
+                                    <!--修改-->
+                                <!--</button>-->
                                 <button class="btn btn-danger btn-sm fa fa-trash-o" ng-click="remove($index)"
                                         ng-if="a.login != 'admin' && a.login != me.login">
                                     删除

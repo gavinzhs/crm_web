@@ -56,6 +56,7 @@ angular.module('myApp.services')
         Org.batch = $resource('/admin/org/batch', null, {
             'get': {method: 'POST'}
         });
+        Org.menpaihao = $resource('/admin/org/listMenPaiHao', {}, {});
         Org.batchMember = $resource('/admin/org/batch/member/:action', {action: '@action'}, {
             'update': {method: 'POST'}
         });

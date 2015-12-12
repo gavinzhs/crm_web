@@ -83,6 +83,19 @@ angular.module('myApp', [
                 url: '/org',
                 templateUrl: 'views/org.html'
             })
+            .state('home.menpaihao', {
+                resolve: {
+                    data: function (CONFIG, Org) {
+                        return Org.menpaihao.get({page: 1, size: CONFIG.limit}).$promise;
+                    },
+                    orgs: function (Org) {
+                        return Org.query().$promise;
+                    }
+                },
+                controller: 'MenPaiHaoCtrl',
+                url: '/menpaihao',
+                templateUrl: 'views/menpaihao.html'
+            })
     }])
     .config(['$httpProvider', function ($httpProvider) {
         $httpProvider.interceptors.push([

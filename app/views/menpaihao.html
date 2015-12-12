@@ -1,0 +1,45 @@
+<div class="col-md-10">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">各门牌号</h3>
+        </div>
+
+        <form class="navbar-form navbar-left" role="search" ng-submit="search()">
+            <div class="form-group">
+                <label class="control-label">地盘</label>
+                <select class="form-control" ng-model="grid.oid" ng-options="o.id as o.name for o in orgs"
+                        style="width: 200px;margin-right: 100px;">
+                    <option value="">选择地盘</option>
+                </select>
+            </div>
+
+            买了我的产品:<input type="checkbox" ng-model="grid.buy">
+
+            <button type="submit" class="btn btn-primary">搜索</button>
+        </form>
+        <HR style="border:1" width="100%" SIZE=1>
+
+        <table class="table list">
+            <tr>
+                <th class="text-left">姓名</th>
+                <th>电话</th>
+                <th>备注</th>
+                <th>是否买了我东西</th>
+            </tr>
+            <tr ng-repeat="u in data.data">
+                <td class="word-wrap"><div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; height: 20px">{{u.name}}</div></td>
+                <td class="word-wrap">{{u.mobile}}</td>
+                <td class="word-wrap">{{u.memo}}</td>
+                <td class="word-wrap">{{u.buy ? "买了" : "没买"}}</td>
+            </tr>
+        </table>
+        <div class="text-center">
+            <pagination
+                    total-items="data.total" ng-model="grid.page"
+                    items-per-page="data.size" class="pagination-sm" boundary-links="true"
+                    max-size="12" rotate="true"
+                    previous-text="上一页" next-text="下一页" first-text="首页" last-text="末页">
+            </pagination>
+        </div>
+    </div>
+</div>

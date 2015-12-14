@@ -50,7 +50,7 @@ angular.module('myApp.controllers')
                         };
 
                         $scope.remove = function () {
-                            ConfirmService.confirm('确定要删除此部门吗?').then(function () {
+                            ConfirmService.confirm('确定要删除此门牌号吗?').then(function () {
                                 Org.remove({id: org.id}, function () {
                                     $scope.refresh = true;
                                     $scope.ok();

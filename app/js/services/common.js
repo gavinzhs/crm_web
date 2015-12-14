@@ -154,3 +154,6 @@ angular.module('myApp.services')
             return str.replace(/(^\s*)|(\s*$)/g, "");
         }
     });
+
+
+

@@ -13,7 +13,7 @@
                 </select>
             </div>
 
-            买了我的产品:<input type="checkbox" ng-model="grid.buy">
+            星级用户:<input type="checkbox" ng-model="grid.buy">
 
             <button type="submit" class="btn btn-primary">搜索</button>
         </form>
@@ -21,16 +21,20 @@
 
         <table class="table list">
             <tr>
-                <th class="text-left">姓名</th>
+                <th class="text-left">门牌号</th>
+                <th>业主</th>
                 <th>电话</th>
-                <th>备注</th>
-                <th>是否买了我东西</th>
+                <th>买了什么</th>
+                <th>星级用户</th>
+                <th>操作</th>
             </tr>
             <tr ng-repeat="u in data.data">
                 <td class="word-wrap"><div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; height: 20px">{{u.name}}</div></td>
+                <td class="word-wrap">{{u.owner}}</td>
                 <td class="word-wrap">{{u.mobile}}</td>
                 <td class="word-wrap">{{u.memo}}</td>
-                <td class="word-wrap">{{u.buy ? "买了" : "没买"}}</td>
+                <td class="word-wrap">{{u.buy ? "是" : "不是"}}</td>
+                <td class="word-wrap"><button class="btn btn-primary btn-xs" ng-click="edit($index)">编辑</button></td>
             </tr>
         </table>
         <div class="text-center">

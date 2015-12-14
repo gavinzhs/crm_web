@@ -14,6 +14,7 @@ rm -rf $dist/js/*
 echo "build lib.css"
 cp app/bower_components/html5-boilerplate/src/css/main.css $dist/css
 cat \
+app/bower_components/angular-ui-tree/dist/angular-ui-tree.min.css \
 app/bower_components/angular-xeditable/dist/css/xeditable.css \
 > $dist/css/lib.css
 
@@ -47,21 +48,21 @@ cat app/js/**/*.js |grep -v "use strict" >> $dist/js/app.js
 
 
 echo "tar"
-tar -zcf $dist.tar.gz $dist
-
-echo "prepare"
-ssh root@$host "mkdir -p $dir"
-
-echo "scp"
-scp $dist.tar.gz root@$host:
-
-
-echo "remote operation"
-ssh root@$host "rm -rf $dist"
-ssh root@$host "tar -zxf $dist.tar.gz && rm -rf $dir && mv $dist $dir >/dev/null"
-
-echo "clean"
-rm -rf $dist.tar.gz
-rm -rf $dist
+tar -zcf app.tar.gz app
+#
+#echo "prepare"
+#ssh root@$host "mkdir -p $dir"
+#
+#echo "scp"
+#scp $dist.tar.gz root@$host:
+#
+#
+#echo "remote operation"
+#ssh root@$host "rm -rf $dist"
+#ssh root@$host "tar -zxf $dist.tar.gz && rm -rf $dir && mv $dist $dir >/dev/null"
+#
+#echo "clean"
+#rm -rf $dist.tar.gz
+#rm -rf $dist
 
 echo "done"

@@ -39,7 +39,7 @@
     </div>
 
     <div class="row xe-row" ng-if="org.tp == 3">
-        <label class="col-sm-3 control-label">买我家的？</label>
+        <label class="col-sm-3 control-label">星级用户</label>
         <div class="col-sm-9">
             <label class="radio-inline">
                 <input name="isShow" type="radio" ng-value="true" ng-model="org.buy"
@@ -53,7 +53,7 @@
     </div>
 
     <div class="row xe-row" ng-if="org.tp == 3">
-        <label class="col-sm-3 control-label">备注</label>
+        <label class="col-sm-3 control-label">买过什么</label>
         <div class="col-sm-9">
             <a href="#" editable-text="org.memo"
                onbeforesave="save('memo', $data)">{{ org.memo || '点击编辑' }}</a>
@@ -69,7 +69,7 @@
             <form name="frm" role="form" ng-submit="addSubOrg()">
                 <div class="form-group"
                      ng-class="{'has-error' : frm.name.$dirty && frm.name.$invalid, 'has-success' : frm.name.$dirty && frm.name.$valid}">
-                    <input type="text" name="name" ng-model="sub.name" placeholder="请输入名称" class="form-control" required>
+                    <input type="text" name="name" ng-model="sub.name" placeholder="门牌号" class="form-control" required>
                 </div>
 
                 <div class="form-group" ng-if="org.tp == -1">
@@ -87,7 +87,7 @@
                 <div class="panel panel-default" ng-if="org.tp == 2"
                      ng-class="{'has-error' : frm.isShow.$dirty && frm.isShow.$invalid, 'has-success' : frm.isShow.$dirty && frm.isShow.$valid}">
                     <div class="panel-heading">
-                        <h3 class="panel-title">买我家的？</h3>
+                        <h3 class="panel-title">星级用户</h3>
                     </div>
                     <div class="panel-body">
                         <label class="radio-inline">
@@ -103,7 +103,7 @@
                 </div>
 
                 <div class="form-group" ng-if="org.tp == 2">
-                    <textarea placeholder="请输入备注" class="form-control" ng-model="sub.memo"></textarea>
+                    <textarea placeholder="买过什么" class="form-control" ng-model="sub.memo"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-xs" ng-disabled="frm.$invalid">完成</button>
             </form>

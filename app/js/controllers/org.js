@@ -92,6 +92,35 @@ angular.module('myApp.controllers')
                     });
             };
 
+            $scope.batchAdd = function (scope) {
+                $modal.open({
+                    templateUrl: 'views/batchadd_org_dlg.html',
+                    controller: function ($scope, $modalInstance, parentId) {
+                        $scope.batch = {
+                            parent: parentId
+                        };
+
+                        $scope.batchAdd = function () {
+                            Org.batchAdd.get($scope.batch, function (data) {
+                                if (data.code == 1) {
+                                    Alert.alert('批量添加成功！');
+                                    $modalInstance.close();
+                                } else {
+                                    Alert.alert('批量添加失败！' + data.data, true);
+                                }
+                            }, function (res) {
+                                Alert.alert('批量添加失败！' + res, true);
+                            });
+                        };
+                    },
+                    resolve: {
+                        parentId: function () {
+                            return scope.$modelValue.id;
+                        }
+                    }
+                });
+            };
+
             $scope.tryToggle = function (scope) {
                 if (!scope.collapsed || scope.$modelValue.isLeaf || scope.$modelValue.loaded) {
                     scope.toggle();

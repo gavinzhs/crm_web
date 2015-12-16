@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h5 class="modal-title">批量添加门牌号</h5>
+</div>
+<div class="modal-body">
+        <div class="col-sm-6">
+            <form name="frm" role="form">
+                <div class="form-group">
+                    <input placeholder="楼层" type="number" class="form-control" ng-model="batch.floor">
+                </div>
+
+                <div class="form-group">
+                    <input placeholder="每层户数" type="number" class="form-control" ng-model="batch.door">
+                </div>
+            </form>
+        </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="batchAdd()">批量创建</button>
+</div>

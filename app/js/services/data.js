@@ -53,7 +53,7 @@ angular.module('myApp.services')
         var Org = $resource('/admin/org/:id', {id: '@id'}, {
             'update': {method: 'POST'}
         });
-        Org.batch = $resource('/admin/org/batch', null, {
+        Org.batchAdd = $resource('/admin/org/batch/add', null, {
             'get': {method: 'POST'}
         });
         Org.menpaihao = $resource('/admin/org/listMenPaiHao', {}, {});

@@ -11,6 +11,10 @@
      ng-click="edit(this)" style="margin-right: 8px;">
     <span class="fa fa-edit"> 编辑</span>
   </a>
+    <a class="pull-right btn btn-primary btn-xs" data-nodrag
+       ng-click="batchAdd(this)" style="margin-right: 8px;" ng-if="me.login == 'admin' && item.tp == 2">
+        <span class="fa fa-edit"> 批量添加</span>
+    </a>
   <span style="font-weight: lighter; margin-left: 10px;">
     <small>{{item.memo}}</small>
   </span>
